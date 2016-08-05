@@ -9,6 +9,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    @question = Question.new(whitelisted_question_params)
   end
 
   def edit
@@ -17,5 +18,11 @@ class QuestionsController < ApplicationController
 
   def destroy
 
+  end
+
+  private
+
+  def whitelisted_question_params
+    params.require(:question).permit(:type)
   end
 end
