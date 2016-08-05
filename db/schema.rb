@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805220740) do
+ActiveRecord::Schema.define(version: 20160805222943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "multiple_choices", force: :cascade do |t|
-    t.string   "choice"
+    t.string   "choice",      null: false
     t.integer  "question_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 20160805220740) do
   add_index "multiple_choices", ["question_id"], name: "index_multiple_choices_on_question_id", using: :btree
 
   create_table "questions", force: :cascade do |t|
-    t.string   "question"
-    t.string   "type"
-    t.boolean  "required"
+    t.string   "question",   null: false
+    t.string   "type",       null: false
+    t.boolean  "required",   null: false
     t.integer  "survey_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20160805220740) do
   add_index "questions", ["survey_id"], name: "index_questions_on_survey_id", using: :btree
 
   create_table "range_choices", force: :cascade do |t|
-    t.integer  "min"
-    t.integer  "max"
+    t.integer  "min",         null: false
+    t.integer  "max",         null: false
     t.integer  "question_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20160805220740) do
   add_index "range_choices", ["question_id"], name: "index_range_choices_on_question_id", using: :btree
 
   create_table "surveys", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",       null: false
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
