@@ -16,11 +16,18 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body data-no-turbolink>
-  <nav>
-    <%= link_to "New Survey", new_survey_path %>
+  <nav class="nav navbar navbar-default">
+    <div class="container">
+      <%= link_to "New Survey", new_survey_path %>
+    </div>
   </nav>
-
-  <%= yield %>
-
+  <div class="container">
+    <% flash.each do |type, message| %>
+      <div>
+        <strong><%= type %>! <%= message %></strong>
+      </div>
+    <% end %>
+    <%= yield %>
+  </div>
 </body>
 </html>
