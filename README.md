@@ -1,11 +1,13 @@
-# project_surveyor
+# Project Surveyor
 Build it, take it, view it.
 
+###Description
 [A Ruby on Rails project from the Viking Code School which uses Active Record Associations, nested forms, collection forms, range fields, and PostgreSQL](https://www.vikingcodeschool.com)
 
+
+###Mental Model
 1. What is the relationship between a survey and its questions?
   One survey to many questions
-
 
 2. How might you create a survey and also create questions for it?
 Create survey with title, description. Next page has buttons for what type of question to add. Button to finish making survey
